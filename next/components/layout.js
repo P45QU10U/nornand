@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
+
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
 import '@reach/skip-nav/styles.css'
 
 import Menu from './menu'
-
-const nomDeLaBoite = 'Nornand'
 
 export const siteTitle = ' - Nornand'
 
@@ -13,10 +11,10 @@ export default function Layout({ children }) {
   return (
     <>
       <SkipNavLink>passer au contenu</SkipNavLink>
-      <div className="mb-4 px-4">
+      <div className="">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="description" content="Learn how to build a personal website using Next.js" />
+          <meta name="description" content="Créer votre site internet" />
           <meta
             property="og:image"
             content={`https://og-image.now.sh/${encodeURI(
@@ -26,12 +24,7 @@ export default function Layout({ children }) {
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <header className="">
-          <h2 className="">
-            <Link href="/">
-              <a className="">{nomDeLaBoite}</a>
-            </Link>
-          </h2>
+        <header className="flex align-items justify-between">
           <Menu />
         </header>
         <SkipNavContent>
