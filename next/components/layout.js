@@ -13,7 +13,7 @@ export default function Layout({ children }) {
   return (
     <>
       <SkipNavLink>passer au contenu</SkipNavLink>
-      <div className="mb-4 px-4">
+      <div className="min-h-screen relative">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content="Learn how to build a personal website using Next.js" />
@@ -26,12 +26,7 @@ export default function Layout({ children }) {
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <header className="">
-          <h2 className="">
-            <Link href="/">
-              <a className="">{nomDeLaBoite}</a>
-            </Link>
-          </h2>
+        <header className=" bg-orange-200 flex top-0 sticky align-items justify-between">
           <Menu />
         </header>
         <SkipNavContent>
