@@ -4,45 +4,49 @@ import MenuLi from './MenuLi'
 
 export default function Menu() {
 
-  const nomDeLaBoite = 'Nornand'
+  const LogoNameEnt = 'Nornand'
 
-  // const [toggle, setToggle] = React.useState(false)
-  const [toggle, setToggle] = React.useState(true)
+  const [toggle, setToggle] = React.useState(false)
+  // Pour tests sur menu
+  // const [toggle, setToggle] = React.useState(true)
 
-  const toggleMenu = (e) => {
+  function toggleMenu(e) {
     e.preventDefault()
     setToggle(!toggle)
   }
 
-  const displayMenu = toggle ? 'hidden' : ''
+  const displayedMenu = !toggle ? 'hidden ' : ''
 
   return (
-    <nav className="p-4 bg-blue-300  w-full">
-      <div className="flex align-items justify-between mb-6">
-        <h2 className="">
+    <nav className="w-full">
+      <div className="flex items-center justify-between p-4 mb-4">
+        <h1 className="">
           <Link href="/">
-            {nomDeLaBoite}
+            {LogoNameEnt}
           </Link>
-        </h2>
-        <button className="block md:hidden px-4" type="button" onClick={toggleMenu} aria-expanded={toggle} aria-controls="menu">
-          <svg className="h-8 w-8 fill-current" id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-            <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+        </h1>
+        <button className="block md:hidden px-4 text-indigo-400" type="button" onClick={(e) => toggleMenu(e)} aria-expanded={toggle} aria-controls="menu">
+          <svg className="h-8 w-8 fill-current" id="i-menu" aria-label="Menu" viewBox="0 0 32 32"  stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6.25%">
+          <path d="M4 8h24M4 16h24M4 24h24"/>
           </svg>
         </button>
       </div>
-      <ul id="menu" className="bg-gray-400 flex flex-col align-items justify-center md:flex md:flex-wrap md:flex-row md:items-center md:justify-end" hidden={!toggle}>
+      <ul 
+        id="menu" 
+        className={`${displayedMenu} flex flex-col items-center justify-center md:flex md:flex-wrap md:flex-row md:justify-end md:mr-4 `} 
+      >
         <MenuLi>
-          <Link href="/">Home</Link>
+          <Link href="/">Accueil</Link>
         </MenuLi>
-        <li className="">
-          <a href="/benefits">Benefits</a>
-        </li>
-        <li className="">
-          <a href="/pricing">Pricing</a>
-        </li>
-        <li className="">
-          <a href="/blog">Blog</a>
-        </li>
+        <MenuLi>
+          <Link href="/offre">Offre</Link>
+        </MenuLi>
+        <MenuLi>
+          <Link href="/a-propos">A propos</Link>
+        </MenuLi>
+        <MenuLi>
+          <Link href="/blog">Blog</Link>
+        </MenuLi>
       </ul>
     </nav>
   )
