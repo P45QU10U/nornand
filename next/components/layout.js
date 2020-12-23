@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
+
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
 import '@reach/skip-nav/styles.css'
 
 import Menu from './menu'
-
-const nomDeLaBoite = 'Nornand'
 
 export const siteTitle = ' - Nornand'
 
@@ -16,7 +14,7 @@ export default function Layout({ children }) {
       <div className="min-h-screen relative">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="description" content="Learn how to build a personal website using Next.js" />
+          <meta name="description" content="Créer votre site internet" />
           <meta
             property="og:image"
             content={`https://og-image.now.sh/${encodeURI(
