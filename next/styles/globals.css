@@ -26,6 +26,14 @@
   .scroll-snap-align-start {
     scroll-snap-align: start;
   }
+
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+
+  .filter-none {
+    filter: none;
+  }
 }
 
 .detourage {

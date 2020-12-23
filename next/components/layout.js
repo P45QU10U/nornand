@@ -14,7 +14,7 @@ export default function Layout({ children }) {
       <div className="min-h-screen relative">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="description" content="Créer votre site internet" />
+          <meta name="description" content="Création de site sur mesure" />
           <meta
             property="og:image"
             content={`https://og-image.now.sh/${encodeURI(
@@ -24,11 +24,11 @@ export default function Layout({ children }) {
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <header className=" bg-orange-200 flex top-0 sticky align-items justify-between">
+        <header className="bg-blue-800 flex top-0 sticky align-items justify-between">
           <Menu />
         </header>
         <SkipNavContent>
-          <main className="max-w-7xl mx-auto bg-blue-200 overflow-hidden md:max-w-7xl">{children}</main>
+          <main >{children}</main>
         </SkipNavContent>
       </div>
     </>
