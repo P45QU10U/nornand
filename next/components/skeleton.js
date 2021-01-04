@@ -3,15 +3,26 @@ import Head from 'next/head'
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
 import '@reach/skip-nav/styles.css'
 
-import Menu from './menu'
+import dynamic from 'next/dynamic'
+import Header from './Header'
+
+import { useContextEcommerce } from '../context/ecommerceProv'
+// import SnipcartBottom from './ecommerce/snipcartBottom'
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('../components/ecommerce/snipcartBottom')
+  // { ssr: false }
+)
 
 export const siteTitle = ' - Nornand'
 
 export default function Layout({ children }) {
+  const [commerce] = useContextEcommerce()
+
   return (
     <>
       <SkipNavLink>passer au contenu</SkipNavLink>
-      <div className="min-h-screen relative">
+      <div className="relative">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content="Création de site sur mesure" />
@@ -23,13 +34,17 @@ export default function Layout({ children }) {
           />
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
+
+          <link rel="preconnect" href="https://app.snipcart.com" />
+          <link rel="preconnect" href="https://cdn.snipcart.com" />
+          <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.css" />
         </Head>
-        <header className="bg-blue-800 flex top-0 sticky align-items justify-between">
-          <Menu />
-        </header>
+        <Header />
         <SkipNavContent>
-          <main >{children}</main>
+          <main>{children}</main>
         </SkipNavContent>
+
+        {commerce ? <DynamicComponentWithNoSSR commerce={commerce} /> : null}
       </div>
     </>
   )

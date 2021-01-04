@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="fr" >
+      <Html lang="fr">
         <Head />
         <body className="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
           <Main />
