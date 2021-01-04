@@ -7,11 +7,9 @@ import dynamic from 'next/dynamic'
 import Header from './Header'
 
 import { useContextEcommerce } from '../context/ecommerceProv'
-// import SnipcartBottom from './ecommerce/snipcartBottom'
 
-const DynamicComponentWithNoSSR = dynamic(
+const DynamicEcommerce = dynamic(
   () => import('../components/ecommerce/snipcartBottom')
-  // { ssr: false }
 )
 
 export const siteTitle = ' - Nornand'
@@ -44,7 +42,7 @@ export default function Layout({ children }) {
           <main>{children}</main>
         </SkipNavContent>
 
-        {commerce ? <DynamicComponentWithNoSSR commerce={commerce} /> : null}
+        {commerce ? <DynamicEcommerce commerce={commerce} /> : null}
       </div>
     </>
   )
