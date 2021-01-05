@@ -8,9 +8,7 @@ import Header from './Header'
 
 import { useContextEcommerce } from '../context/ecommerceProv'
 
-const DynamicEcommerce = dynamic(
-  () => import('../components/ecommerce/snipcartBottom')
-)
+const DynamicEcommerce = dynamic(() => import('../components/ecommerce/snipcartBottom'))
 
 export const siteTitle = ' - Nornand'
 
