@@ -1,19 +1,11 @@
 import React from 'react'
 import { snipcartlib } from '../../../config'
+import useScript from '../../hooks/useScript'
+
+const snipcartApiKey = 'YOUR_PUBLIC_API_KEY'
 
 export default function SnipcartBottom({ commerce = false }) {
-  function createSnipcartScript() {
-    const e = window.document.createElement('script')
-    e.src = snipcartlib
-    e.async = true
-    window.document.body.append(e)
-  }
+  const status = useScript(snipcartlib)
 
-  React.useEffect(() => {
-    if (commerce) {
-      createSnipcartScript()
-    }
-  }, [commerce])
-
-  return <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY" />
+  return status === 'ready' && commerce && <div hidden id="snipcart" data-api-key={snipcartApiKey} />
 }
