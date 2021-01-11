@@ -1,14 +1,20 @@
 import classnames from 'classnames'
-import { mainBgColor } from './theme'
+import { maxWidthSections } from './theme'
 
-function Container({ bgColor = mainBgColor, textColor = 'text-black', className = '', children }) {
-  return <div className={classnames(`${bgColor} ${textColor} ${className}`)}>{children}</div>
+function Container({ className = '', children }) {
+  return <div className={classnames(`${className}`)}>{children}</div>
 }
 
-// Voir pour faire une section qui s'adapte selon la taille de la grille.
-
-function Section({ bgColor, textColor, maxSize, rows, cols, children }) {
-  return <section className={classnames(`bg-${bgColor} text-${textColor} md:max-w-${maxSize}`)}>{children}</section>
+function Section({ className = '', children }) {
+  return <section className={classnames(maxWidthSections, `p-4`, className)}>{children}</section>
 }
 
-export { Container, Section }
+function Article({ children }) {
+  return (
+    <Section>
+      <article className="bg-gray-100 p-8 mb-8">{children}</article>
+    </Section>
+  )
+}
+
+export { Container, Section, Article }

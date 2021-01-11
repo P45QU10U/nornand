@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Img from 'next/image'
 import { groq } from 'next-sanity'
-import { Button } from '../components/designSystem/button'
+import { Button } from '../components/designSystem/buttons'
 import { Container, Section } from '../components/designSystem/layout'
 
-import Layout, { siteTitle } from '../components/skeleton'
+import Layout, { appendSiteTitle } from '../components/skeleton'
 
 import { useContextEcommerce } from '../context/ecommerceProv'
 
@@ -49,15 +49,12 @@ export default function Home({ data, preview }) {
   return (
     <Layout>
       <Head>
-        <title>Communication numérique {siteTitle}</title>
+        <title>Communication numérique {appendSiteTitle}</title>
       </Head>
       {/* <Container className="bg-gradient-to-b from-orange-300 to-orange-600"> */}
-      <Container className="bg-gradient-to-b from-orange-600 to-gray-50">
-        <section className="p-6 min-h-screen grid grid-cols-1 md:gap-24 md:grid-cols-2 justify-items-center items-center max-w-6xl w-full mx-auto">
+      <Container className="bg-gradient-to-t from-orange-600 to-white">
+        <Section className="my-8 grid grid-cols-1 md:gap-24 md:grid-cols-2 justify-items-center items-center mx-auto">
           <div className="">
-            {/*        <h2 className="text-4xl mb-6">
-            Établir votre communication numérique correctement est une épreuve. Ne surmontez pas cela seul&nbsp;-&nbsp;e.
-          </h2> */}
             <h2 className="text-4xl mb-6">
               Bien établir votre communication numérique n'est pas chose aisée. Faites vous épauler.
             </h2>
@@ -77,22 +74,17 @@ export default function Home({ data, preview }) {
             </p>
             <p>Site web, réseaux sociaux, formations</p>
             <p>
-              <Button size="lg" type="primary">
+              <Button size="lg" type="button" purpose="primary">
                 Contactez-moi
               </Button>
             </p>
             <p>
-              <Button size="lg" type="secondary">
-                Contactez-moi
-              </Button>
-            </p>
-            <p>
-              <Button size="lg" type="basic">
+              <Button size="lg" type="button" purpose="secondary">
                 Contactez-moi
               </Button>
             </p>
           </div>
-        </section>
+        </Section>
       </Container>
       {/* <section className="h-screen bg-gradient-to-b from-orange-600 to-red-400"> */}
       <section className="h-screen bg-gradient-to-b from-orange-600 to-red-400">
@@ -107,7 +99,7 @@ export default function Home({ data, preview }) {
           <h2>Commerce électronique</h2>
           <p>Transformez votre site actuel en boutique, ou créons un de toutes pièces</p>
           {!commerce ? (
-            <Button size="lg" type="primary" onClick={() => setCommerce(true)}>
+            <Button size="lg" type="button" purpose="primary" onClick={() => setCommerce(true)}>
               Transformer en e-commerce
             </Button>
           ) : null}

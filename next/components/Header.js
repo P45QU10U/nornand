@@ -1,14 +1,15 @@
-import React from 'react';
-
-import Menu from './menu';
-import { Container } from './designSystem/layout';
+import React from 'react'
+import classnames from 'classnames'
+import Menu from './menu/menu'
+import { Container } from './designSystem/layout'
+import { maxWidthSections } from './designSystem/theme'
 
 export default function Header() {
   return (
-    <Container bgColor="bg-orange-600" className="sticky top-0 z-20 opacity-80">
-      <header className="flex top-0 sticky align-items justify-between max-w-6xl mx-auto">
+    <Container className="shadow-md ">
+      <header className={classnames(maxWidthSections, `flex align-items justify-between`)}>
         <Menu />
       </header>
     </Container>
-  );
+  )
 }
