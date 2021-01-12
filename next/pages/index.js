@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Img from 'next/image'
 import { groq } from 'next-sanity'
-import { Button } from '../components/designSystem/buttons'
+import { Button } from '../components/designSystem/Buttons'
 import { Container, Section } from '../components/designSystem/layout'
 
 import Layout, { appendSiteTitle } from '../components/skeleton'
@@ -69,15 +69,14 @@ export default function Home({ data, preview }) {
           <div className="flex flex-col gap-4 justify-center min-h-full border-gray-300 border-4 rounded p-6">
             <h3 className="mb-4 text-3xl text-orange-900">Artisan, commerçant, TPE, PME, PMI</h3>
 
-            <q className="font-serif text-2xl">
-              Utilisez les bons outils pour être visibles sur le web. <em>Pas seulement présents</em>.
-            </q>
+            <q className="font-serif text-4xl">Si vous projetez de créer votre site web, c'est ici.</q>
+
             <div
               className="text-4xl text-center inline-block items-center"
               role="img"
               aria-label="Choix indécis sur l'outil"
             >
-              🔧 🤷🏻 🪛
+              🔧 🤷🏻
             </div>
             <Button
               size="lg"
@@ -91,9 +90,44 @@ export default function Home({ data, preview }) {
         </Section>
       </Container>
 
-      <Container className="">
+      <Container className="bg-gradient-to-b from-gray-100 to-white">
         {/* <section className="h-screen bg-gradient-to-b from-orange-600 to-red-400"> */}
         <Section className="">
+          <h2>Offre</h2>
+          <div className="grid grid-cols-1 grid-rows-3 gap-4 ">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div>
+                <h3>Création de site web vitrine</h3>
+                <p className="text-3xl">Pour présenter votre activité</p>
+                <p>afin d'être plus visible, atteindre de nouveaux clients, pérenniser votre activité…</p>
+              </div>
+              <Img
+                width="400"
+                height="300"
+                alt="Site vitrine sur mesure"
+                src="/images/undraw_building_websites_i78t.svg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <Img width="400" height="300" alt="Projet e-commerce" src="/images/undraw_add_to_cart_vkjp.svg" />
+
+              <div>
+                <h3>Site e-commerce</h3>
+                <p>Transformez votre site actuel en boutique, ou créons un de toutes pièces</p>
+                {!commerce ? (
+                  <Button size="lg" type="button" purpose="primary" onClick={() => setCommerce(true)}>
+                    Transformer en e-commerce
+                  </Button>
+                ) : null}
+              </div>
+            </div>
+            <div>
+              <h3>Conseil en stratégie numérique</h3>
+
+              <p>Utilisez à bon escient </p>
+            </div>
+          </div>
+
           <div className="p-5">
             <div>
               <h4>Prestations</h4>
@@ -104,22 +138,18 @@ export default function Home({ data, preview }) {
               </ul>
             </div>
 
-            <h2>Création de site web</h2>
-            <p className="text-3xl">Pour présenter votre activité</p>
-            <p>afin d'être plus visible, atteindre de nouveaux clients, pérenniser votre activité…</p>
-
             <h2>Refonte de votre site web</h2>
 
             <p className="text-3xl">Votre site n'est plus adapté à vos besoins et/ou est trop lent</p>
-
-            <h2>Commerce électronique</h2>
-            <p>Transformez votre site actuel en boutique, ou créons un de toutes pièces</p>
-            {!commerce ? (
-              <Button size="lg" type="button" purpose="primary" onClick={() => setCommerce(true)}>
-                Transformer en e-commerce
-              </Button>
-            ) : null}
           </div>
+        </Section>
+        <Section>
+          <h2>Performance</h2>
+          <p className="hover:bg-orange-400">
+            Un visiteur sur trois qui met plus de 6 secondes à afficher votre site va le quitter.
+          </p>
+          <p>Google prend en compte en 2021 des critères de performance pour l'indexation.</p>
+          Ici, on table sur la performance.
         </Section>
         <div>
           <section>
@@ -138,14 +168,7 @@ export default function Home({ data, preview }) {
           </section>
         </div>
         <div>
-          <section>
-            <h2>Performance</h2>
-
-            <p className="hover:bg-orange-400">
-              Un visiteur sur trois qui met plus de 6 secondes à afficher votre site va le quitter.
-            </p>
-            <p>Google prend en compte en 2021 des critères de performance pour l'indexation.</p>
-          </section>
+          <section />
         </div>
         <section>
           <div className="p-5">

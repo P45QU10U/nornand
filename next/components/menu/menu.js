@@ -13,6 +13,11 @@ export const menu = [
     slug: '/offre',
   },
   {
+    title: 'Contact',
+    slug: '/contact',
+  },
+
+  {
     title: 'A propos',
     slug: '/a-propos',
   },
