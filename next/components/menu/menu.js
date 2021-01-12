@@ -31,10 +31,14 @@ export default function Menu() {
     <nav className="w-full">
       <div className="grid grid-cols-6 grid-rows-1 p-4 items-center">
         <h1 className="col-span-3 md:col-span-1 text-left text-4xl">
-          <a href="/" className="grid grid-cols-2 no-underline">
-            <img width="50" height="50" src="/images/perfpage.svg" alt="logo PerfPage" />
-            <span className="items-start">PerfPage</span>
-          </a>
+          <Link href="/">
+            <a href="/" className="flex flex-row gap-2 items-center no-underline">
+              <img width="50" height="50" src="/images/perfpage.svg" alt="logo PerfPage" />
+
+              <span className="items-start">PerfPage</span>
+              <span className="text-sm">création numérique</span>
+            </a>
+          </Link>
         </h1>
         <button
           className="col-span-3 col-end-auto grid justify-items-end md:hidden text-orange-600"
@@ -51,7 +55,11 @@ export default function Menu() {
         >
           {menu.map((entr, index) => (
             <MenuLi key={`menu-${index}`}>
-              <Link href={entr.slug}>{entr.title}</Link>
+              <Link href={entr.slug}>
+                <a href={entr.slug} className="hover:ring hover:ring-fuchsia-500">
+                  {entr.title}
+                </a>
+              </Link>
             </MenuLi>
           ))}
         </ul>

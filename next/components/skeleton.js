@@ -7,7 +7,7 @@ import Header from './Header'
 import Footer from './Footer'
 import { fonts } from './designSystem/theme'
 
-export const appendSiteTitle = ' - PerfCrea'
+export const appendSiteTitle = ' - PerfPage'
 
 export default function Skeleton({ children }) {
   return (

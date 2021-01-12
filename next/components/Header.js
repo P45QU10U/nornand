@@ -6,7 +6,7 @@ import { maxWidthSections } from './designSystem/theme'
 
 export default function Header() {
   return (
-    <Container className="shadow-md ">
+    <Container className="shadow-md mb-8">
       <header className={classnames(maxWidthSections, `flex align-items justify-between`)}>
         <Menu />
       </header>

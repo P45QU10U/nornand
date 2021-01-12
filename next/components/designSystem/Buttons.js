@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 import { buttonpurposes, buttonsizes } from './theme'
 
-function Button({ size, type, purpose, children, onClick }) {
-  const classNames = `${buttonpurposes[purpose]} ${buttonsizes[size]}`
+function Button({ size, type, purpose, children, onClick, className }) {
+  const classNames = `${className} ${buttonpurposes[purpose]} ${buttonsizes[size]}`
 
   return (
     // eslint-disable-next-line react/button-has-type

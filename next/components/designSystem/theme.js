@@ -2,8 +2,8 @@
 export const fonts = 'font-sans'
 
 // backgroundColors
-export const mainBgColor = 'bg-indigo-500'
-export const mainBgColorHover = 'bg-indigo-600'
+export const mainBgColor = 'bg-pink-500'
+export const mainBgColorHover = 'bg-pink-600'
 export const mainTextColor = 'text-white'
 export const mainTextColorHover = 'text-white'
 
@@ -12,7 +12,16 @@ export const secBgColorHover = 'bg-indigo-300'
 export const secTextColor = 'text-gray-400'
 export const secTextColorHover = 'text-white'
 
-export const maxWidthSections = ['max-w-sm', 'md:max-w-2xl', 'lg:max-w-4xl', 'mx-auto', 'w-xl', 'md:w-2xl']
+export const maxWidthSections = [
+  'max-w-sm',
+  'md:max-w-2xl',
+  'lg:max-w-4xl',
+  'xl:max-w-5xl',
+  '2xl:max-w-6xl',
+  'mx-auto',
+  'w-xl',
+  'md:w-2xl',
+]
 
 // Sizes
 // export const sizes = {}
