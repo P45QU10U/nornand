@@ -2,8 +2,8 @@
 export const fonts = 'font-sans'
 
 // backgroundColors
-export const mainBgColor = 'bg-pink-500'
-export const mainBgColorHover = 'bg-pink-600'
+export const mainBgColor = 'bg-amber-600'
+export const mainBgColorHover = 'bg-amber-700'
 export const mainTextColor = 'text-white'
 export const mainTextColorHover = 'text-white'
 
