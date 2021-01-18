@@ -28,7 +28,7 @@ export const maxWidthSections = [
 
 // Buttons
 export const buttonpurposes = {
-  primary: `${mainBgColor} hover:${mainBgColorHover} ${mainTextColor} hover:${mainTextColorHover} font-bold rounded uppercase`,
+  primary: `${mainBgColor} hover:${mainBgColorHover} ${mainTextColor} hover:${mainTextColorHover} font-bold rounded uppercase no-underline text-center`,
   secondary: `${secBgColor} hover:${secBgColorHover} text-white font-bold rounded`,
   basic: 'bg-white hover:bg-gray-700 text-gray-700 font-bold rounded',
   delete: 'bg-red-300 hover:bg-red-500 text-white font-bold rounded',

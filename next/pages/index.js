@@ -2,12 +2,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Img from 'next/image'
 import { groq } from 'next-sanity'
-import { Button } from '../components/designSystem/Buttons'
+import { Button, LinkButton } from '../components/designSystem/Buttons'
 import { Container, Section } from '../components/designSystem/layout'
 
 import Layout, { appendSiteTitle } from '../components/skeleton'
-
-import { useContextEcommerce } from '../context/ecommerceProv'
 
 import Typo from '../components/typography'
 
@@ -24,6 +22,13 @@ const postQuery = groq`*[_type == 'storeSettings'][0]{
   geocoords,
   "socialnetworks": *[_type == "socialnetwork"]
 }`
+
+/* 
+// Pour faire sauter tout le JS
+export const config = {
+  unstable_runtimeJS: false
+};
+ */
 
 export async function getStaticProps({ preview = false }) {
   const donnees = await getClient(preview).fetch(postQuery)
@@ -43,8 +48,6 @@ export default function Home({ data, preview }) {
   })
 
   const { address, name } = paramsEnterprise
-
-  const [commerce, setCommerce] = useContextEcommerce()
 
   return (
     <Layout>
@@ -116,11 +119,10 @@ export default function Home({ data, preview }) {
               <div className="w-full bg-amber-50 rounded-2xl rounded-b-none  md:rounded-r-none md:rounded-b-2xl  p-8 flex flex-col gap-2">
                 <h3>Site e-commerce</h3>
                 <p>Transformez votre site actuel en boutique, ou créons-en un de toutes pièces</p>
-                {!commerce ? (
-                  <Button size="lg" type="button" purpose="primary" onClick={() => setCommerce(true)}>
-                    Transformer en e-commerce
-                  </Button>
-                ) : null}
+
+                <LinkButton href="/demo-ecommerce" size="lg" type="button" purpose="primary">
+                  Voir démo e-commerce
+                </LinkButton>
               </div>
               <div className="p-4">
                 <Img width="400" height="300" alt="Projet e-commerce" src="/images/undraw_add_to_cart_vkjp.svg" />
@@ -131,8 +133,8 @@ export default function Home({ data, preview }) {
                 <h3>Conseil en stratégie numérique</h3>
 
                 <p>
-                  Utilisés à bon escient les réseaux sociaux peuvent vous amener beaucoup&nbsp;: un contact différent
-                  avec vos clients.
+                  Utilisés à bon escient les réseaux sociaux peuvent vous amener beaucoup&nbsp;: Vous êtes plus près de
+                  vos clients. Et votre image est renforcée.
                 </p>
               </div>
               <div className="p-4">
@@ -158,12 +160,7 @@ export default function Home({ data, preview }) {
                     🚀
                   </span>
                 </h2>
-                <p>Avoir un site performant en 2021, c'est primordial. </p>
 
-                <p>
-                  Le moteur de recherche le plus connu prend en compte en 2021 des critères de performance pour
-                  l'indexation.
-                </p>
                 <p>
                   Chez PerfPage, on table sur la performance. Le site doit se charger en moins de 2 secondes, même dans
                   des conditions dégradées
@@ -171,8 +168,8 @@ export default function Home({ data, preview }) {
               </div>
               <aside className="border-gray-600 border-l-4 p-4">
                 <q className="font-serif text-2xl hover:bg-orange-400">
-                  1 visiteur sur 3 qui met <strong>plus de 6 secondes</strong> à afficher votre site l'aura{' '}
-                  <strong>déjà quitté</strong>.
+                  Pour 1 visiteur sur 3, s'il met <strong>plus de 6 secondes</strong> à afficher votre site, c'est un
+                  visiteur perdu.
                 </q>
                 <p>Et, ne reviendra peut-être pas.</p>
               </aside>

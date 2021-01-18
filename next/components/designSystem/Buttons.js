@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { buttonpurposes, buttonsizes } from './theme'
 
 function Button({ size, type, purpose, children, onClick, className }) {
-  const classNames = `${className} ${buttonpurposes[purpose]} ${buttonsizes[size]}`
+  const classNames = `${buttonpurposes[purpose]} ${buttonsizes[size]} ${className}`
 
   return (
     // eslint-disable-next-line react/button-has-type
@@ -13,10 +13,16 @@ function Button({ size, type, purpose, children, onClick, className }) {
   )
 }
 
-function LinkButton({ size, type, children }) {
-  const classNames = `${buttonpurposes[type]} ${buttonsizes[size]}`
+function LinkButton({ size, type, purpose, href, children, onClick, className }) {
+  const classNames = `${buttonpurposes[purpose]} ${buttonsizes[size]} ${className}`
 
-  return <Link className={classNames}>{children}</Link>
+  return (
+    <Link href={href}>
+      <a href={href} className={classNames} onClick={onClick}>
+        {children}
+      </a>
+    </Link>
+  )
 }
 
 export { Button, LinkButton }
