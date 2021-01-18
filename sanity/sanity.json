@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "Sanity Next MDX Example"
+    "name": "BackOffice"
   },
   "plugins": [
     "@sanity/base",

@@ -5,7 +5,13 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Import custom schema types here
-import page from './page';
+import params from './params'
+import offers from './offers'
+import socialnetwork from './socialnetwork'
+import product from './product';
+import category from './category';
+import subcategory from './subcategory';
+import productvariants from './productvariant'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -15,6 +21,12 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    page,
+    params,
+    offers,
+    socialnetwork,
+    product,
+    productvariants,
+    category,
+    subcategory,
   ]),
 });
