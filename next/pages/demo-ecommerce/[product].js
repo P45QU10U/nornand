@@ -4,7 +4,7 @@ import { Section } from '../../components/designSystem/layout'
 import Skeleton, { appendSiteTitle } from '../../components/skeleton'
 import { sanityClient } from '../../lib/sanity'
 
-export default function Product({ products }) {
+export default function Product({ product }) {
   return (
     <Skeleton>
       <Head>
@@ -13,15 +13,7 @@ export default function Product({ products }) {
       <Section>
         <h2>Bienvenue</h2>
 
-        <ul>
-          {products.map((prod, index) => (
-            <li key={`product${index}`}>
-              <Link href={`/demo-ecommerce/${prod.slug.current}`}>{prod.name}</Link>
-            </li>
-          ))}
-        </ul>
-
-        <pre>{JSON.stringify(products, null, 2)}</pre>
+        <pre>{JSON.stringify(product, null, 2)}</pre>
         <p>
           Cette page présente des produits tel que vous pourriez les vendre. Une adaptation pour chacun d'entre vous est
           possible. C'est en ayant l'outil adapté que l'on travaille le mieux.
@@ -31,18 +23,27 @@ export default function Product({ products }) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const products = await sanityClient.fetch(`   
-  *[_type == 'product']{
-    ...,
-    'subcategory': subcategory[]->{name}
-  }
+export async function getStaticProps({ params }) {
+  const product = await sanityClient.fetch(`
+    *[_type == "product" && slug.current == '${params.product}']
   `)
 
   return {
     props: {
-      preview,
-      products,
+      product,
     },
+  }
+}
+
+export async function getStaticPaths() {
+  const products = await sanityClient.fetch(`
+    *[_type == 'product']{
+      'slug': slug.current
+    }
+  `)
+
+  return {
+    paths: products.map((url) => `/demo-ecommerce/${url.slug}`),
+    fallback: true,
   }
 }

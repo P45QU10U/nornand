@@ -50,8 +50,8 @@ export default {
       ],
     },
     {
-      name: 'category',
-      title: 'Catégorie',
+      name: 'subcategory',
+      title: 'Sous-catégorie',
       type: "array",
       of: [
         {
